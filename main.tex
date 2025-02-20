@@ -1,0 +1,156 @@
+\documentclass[12pt]{article}
+\usepackage{packages}
+\renewcommand{\baselinestretch}{1.3}
+
+\begin{document}
+\begin{center}
+  
+{\Large {\bf Fair Clustering} 
+
+}
+
+\vspace{0.2cm}
+{\small 
+{\bf Candidate:} João Guilherme Alves Santos \\
+{\bf Advisor:} Cristina Gomes Fernandes
+}
+
+\vspace{5mm} 
+
+\begin{abstract}
+This research project is part of the MSc scholarship application of João Guilherme Alves Santos.
+%This is the Master Scholarship proposal for the graduate student João Guilherme Alves Santos, under the supervision of Prof.~Cristina Gomes Fernandes. 
+Clustering refers to grouping objects based on similarities and is a widely known unsupervised learning task used in decision-making algorithms that affect the lives of millions of people. 
+Given the potential impact of these algorithms, fairness constraints are added to these problems to avoid external biases and ensure fairness in decisions. 
+The goal of this project is to study three clustering problems under fairness constraints: the fair $k$-center, fair $k$-median and fair facility location problems, all three are $\NP$-hard in both their traditional and fairness versions.
+Consequently, approximation algorithms are designed to produce solutions that are someway closer to the optimal one.
+This work is in both combinatorial optimization and operations research area, and mastering the techniques used in these algorithms will improve the candidate's ability to develop and analyze approximation algorithms.
+\end{abstract}
+
+\end{center}
+
+\section{Introduction}
+%introduce clustering and fairness
+Clustering is the process of partitioning a given set of objects into groups based on their similarities. 
+This fundamental unsupervised learning task plays a crucial role in a wide range of machine learning applications that impact the lives of millions of people, including image analysis, social network analysis, and pattern recognition. 
+The results of these clustering processes can influence critical decisions in areas such as healthcare, marketing, and education, where groupings may shape opportunities and outcomes. 
+Given the significant social impact, ensuring fairness in algorithms for these problems has become a vital priority. 
+This is where the field of \emph{fair clustering} emerges as an important area of study.
+
+The classical clustering problems studied in combinatorial optimization are the $k$-center, $k$-median, and facility location problems. 
+Given a point set $D$ (whose elements are called clients), a set of possible locations $F$ (whose elements are called facilities) and a distance function $d : (F \cup D) \times (F \cup D) \rightarrow \mathbb{R}_{\geq 0}$ such that $(F\cup D, d)$ forms a \href{https://en.wikipedia.org/wiki/Metric_space}{metric space}, all three problems ask for a set $S \subseteq F$ and an assignment function $\sigma : D \rightarrow S$ that minimizes a cost involving the distance of each client to its assigned facility in $S$. 
+In the $k$-center and $k$-median problems, the size of $S$ is upper-bounded by a given integer $k$, whereas in the facility location problem there is no constraint on the size of $S$, but each possible location $i \in F$ has an opening cost $f_i$, which is taken into account. 
+The goal in the $k$-center problem is to minimize the maximum distance between any client and its assigned facility. 
+For the $k$-median and facility location problems, the goal is to minimize the sum of the distances between each client and its assigned facility. 
+Additionally, in the facility location problem, the total opening costs of the selected facilities are also incorporated into the value to be minimized. 
+In the $k$-center problem, it is traditional to assume that $F=D$, while the general case (where $F$ and $D$ can be distinct) is the \emph{$k$-supplier problem}.
+
+A lot of work has been done with approximation algorithms for these three problems. For the $k$-center problem, Gonzalez~\cite{G1985} and, independently, Hochbaum and Schmoys~\cite{HS1985} gave a 2-approximation algorithms for the problem, while Hsu and Nemhauser proved that is $\NP$-hard to find an algorithm with a lower approximation ratio. For the facility location problem, Li~\cite{L2013} gave a 1.488-approximation for the problem, while Guha and Khuller~\cite{GK1999} proved that is $\NP$-hard to approximate the problem with a approximation ratio better than 1.463. For the $k$-median problem, the best approximation algorithm known is a $(2 + \eps)$-approximation due to Cohen-Addad \emph{et al.}~\cite{CGLS2025}, while Jain \emph{et al.}~\cite{JMS2002} showed that it is $\NP$-hard to approximate the problem with a ratio better than $1.763$.
+
+For the unconstrained versions of these problems, the best way to assign each client to an open facility is to choose the nearest one. Thus, the algorithms for these versions of the problems only focus on selecting a good subset of possible facilities to be opened. However, this approach may not yield a fair solution. Thus, in the fair versions of these problems, the assignment function is as important as the choice of the facilities to be opened.
+
+The concept of fair clustering was first formalized by Chierichetti \emph{et al.}~\cite{CKLV2018} under the \emph{disparate impact} doctrine. The disparate impact doctrine, articulated by Feldman \emph{et al.}~\cite{FSMSV2015} following the \href{https://en.wikipedia.org/wiki/Griggs_v._Duke_Power_Co.}{\emph{Griggs v.\ Duke Power Co.}\ US Supreme Court case}, codifies the notion that protected attributes, such as race and gender, should not be explicitly used in making decisions, and the decisions made should not be disproportionately different for applicants in different protected classes. 
+Guided by this principle, Chierichetti \emph{et al.}~assumed that each client from $D$ has a color which identifies its protected class. 
+Their work focuses on the two non-overlapping colors case. To quantify fairness, they defined a \emph{balance metric}: for a set $X \subseteq D$, balance$(X)$ is the ratio of the minority class size to the majority class size within $X$. 
+They also introduced the notion of $(t,k)$-fair clustering problems, which resemble standard clustering problems but require the balance of each cluster in a solution to be at least $t$.
+For the $(1/t',k)$-fair center problem, they designed a 4-approximation algorithm, and for the $(1/t',k)$-fair median problem, they proposed a $(t' + 2 + \eps)$-approximation algorithm, where $t'$ is a positive integer. 
+This yields a $(3 + \eps)$-approximation when the dataset is perfectly balanced.
+Rösner and Schmidt~\cite{RS2018} generalized this result for the fair $k$-center problem with any number of non-overlapping colors. 
+They developed a $14$-approximation algorithm where the ratio between the sizes of any two protected groups in each cluster matches the corresponding ratio in the entire dataset.
+
+Bercea \emph{et al.}~\cite{BGKKRSS2018} improved the fair $k$-center result and proposed a relaxed notion of fairness.
+They gave a $5$-approximation algorithm for the fair $k$-center with multiple non-overlapping protected classes and exact preservation ratio. 
+Furthermore, they defined \emph{essentially fair} cluster, where a cluster is essentially fair if, for each color, the number of clients with this color differs by at most 1 from a fractional fair cluster. 
+This small additive fairness violation translates into a negligible multiplicative violation in large clusters. 
+They gave an essentially fair $3$-approximation for the fair $k$-center problem, an essentially fair $3.488$-approximation for the fair facility location problem, and an essentially fair $4.675$-approximation for the fair $k$-median problem.
+
+Generalizing the concept of fairness, Berea \emph{et al.}~\cite{BCFN2019} allowed users to specify the maximum over-representation and minimum under-representation for any protected class within a cluster.
+Furthermore, they are the first to allow a client to belong to multiple protected classes simultaneously.
+However, their method violates the fairness constraint by an additive factor of $4\Delta +3$, where $\Delta$ is the maximum number of protected groups a point belongs to at the same time.
+They further showed that, for any approximation algorithm for the standard $k$-center or $k$-median problem with an approximation ratio of $\alpha$, one can obtain a solution that is an $(\alpha + 2)$-approximation to the corresponding problem that satisfies the fairness constraints, incurring only a small fairness violation.
+
+Many other works focus on approximation algorithms for fair clustering (e.g., \cite{WFW2024}, \cite{JSS2020}). New approaches keep emerging that aim for better approximation ratios or even eliminate fairness violations altogether. This is a hot area that has a strong positive social impact, especially given the growing importance of machine learning decision-making algorithms today.
+
+\section{Justification}
+It is undoubted how important is ensuring fairness in the decision-making algorithms used nowadays. 
+So, it is more than clear that developing approximation algorithm for these problems has a big practical interest. 
+Furthermore, there is a lot of theoretical interest as well.
+All three problems in their standard versions are really traditional combinatorial optimization problems and adapting approximation algorithms for these versions to ensure fairness is a big deal from the research perspective.
+
+The existing results in the literature, mentioned in the previous section, show that these problems have recently received significant attention and have been published in prestigious conferences and journals (e.g., TCS, NIPS, IPCP). This attests to the quality of these works and justifies their study.
+
+\section{Objectives}
+
+The goal of this project is to investigate a range of techniques used in approximation algorithms for fair clustering problems. 
+These techniques encompass several advanced topics in combinatorial optimization, including various LP rounding approaches. 
+Given the challenges inherent in developing and analyzing effective approximation algorithms, it is essential for the candidate to gain exposure to methods that foster deep understanding. 
+Consequently, we believe this project is ideally suited for a master's student, as it will provide a strong foundation for more advanced work. 
+Moreover, the project will offer immense value by equipping the candidate with profound knowledge of approximation algorithms and preparing him for future academic endeavors, including his planned pursuit of a PhD degree.
+
+\section{Candidate}
+The candidate holds a BSc in Computer Science from the Institute of Mathematics and Statistics at the University of São Paulo.
+The student completed the course with a GPA of 9.2 out of 10. The program offers considerable flexibility in the subjects students are required to take, allowing the candidate to focus his degree on theoretical computer science by enrolling in specialized courses and achieving excellent grades. Some of these courses include:
+\begin{itemize} 
+    \item MAC0325 Combinatorial Optimization – Grade: 10/10; 
+    \item MAC0694 Combinatorics 1 – Grade: 9.9/10; 
+    \item MAC0450 Approximation Algorithms – Grade: 9.4/10; 
+    \item MAC0320 Introduction to Graph Theory – Grade: 9.2/10. 
+\end{itemize}
+This ensures that the candidate possesses the necessary qualifications to work on this project.
+
+During 2024, the candidate worked on an undergraduate research project funded by FAPESP (process number 2023/16197-0), under the supervisor of Prof. Cristina Gomes Fernandes.
+In this project, the candidate studied approximation algorithms and hardness results for the standard versions of the $k$-center, facility location and $k$-median problems. 
+The project was divided into two parts: in the first part, he studied all the results for the three problems presented in the books  ``\emph{The Design of Approximation Algorithms}''~\cite{books/WS} and ``\emph{Approximation Algorithms}''~\cite{books/Vazirani}; in the second part, he studied the paper ``\emph{Approximating $k$-Median via Pseudo-Approximation}''~\cite{LS2012}, which, in the time of the project, was the latest major breakthrough in the approximation algorithms for the $k$-median problem. 
+This project was presented as a poster at the 32nd International Symposium on Scientific and Technological Initiation of the University of São Paulo.
+
+Studying the approximation algorithms for the standard versions of these three problems is crucial to this project, as most approaches for the fair versions rely on these algorithms. This ensures that the candidate is well-equipped to investigate these problems under additional constraints.
+\newpage
+
+%\section{Plano de trabalho e cronograma}
+
+% \begin{center}
+% \noindent
+% \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}\hline
+% Ativ/Mês & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 \\ \hline
+% 1 & $\surd$ &         & & & & & & & & & & \\
+% 2 &         & $\surd$ & $\surd$ & & & & & & & & & \\
+% 3 &         &         &         & $\surd$ & $\surd$ & & & & & & & \\
+% 4 & $\surd$ & $\surd$ & $\surd$ & $\surd$ & $\surd$ & $\surd$ & & & & & & \\
+% 5 &         &         &         & $\surd$ &         &         & & & & & & \\
+% 6 &         &         &         &         &         & $\surd$ & & & & & & \\
+% 7 &         &         &         &         &         &         & $\surd$ & $\surd$ & & & & \\
+% 8 &         &         &         &         &         &         &         &         & $\surd$ & $\surd$ & $\surd$ & \\
+% 9 &         &         &         &         &         &         & $\surd$ & $\surd$ & $\surd$ & $\surd$ & $\surd$ & $\surd$ \\
+% 10 &        &         &         &         &         & & & & & & & $\surd$ \\ \hline
+% \end{tabular}
+% \end{center}
+
+% \noindent 
+% {\bf Legenda:}
+
+% \begin{enumerate}
+% \itemsep0em 
+% \item Estudo do problema $k$-centros: resultados de inaproximabilidade, algoritmo guloso e método do gargalo. Em curso.
+% \item Estudo do problema de localização de instalações: método primal-dual, de arredondamento e inaproximabilidade.
+% \item Estudo do problema de localização de instalações: busca local, método guloso e probabilístico.
+% \item Escritas parciais do texto, referente a 1, 2 e 3.
+% \item Estudo do problema $k$-mediana: busca local. 
+% \item Preparação do relatório intermediário.
+% \item Estudo do problema $k$-mediana: método primal-dual usando relaxação Lagrangeana, método de arredondamento 
+% probabilístico e inaproximabilidade.
+% \item Estudo de resultados mais recentes para o problema de localização de instalações e/ou $k$-mediana.
+% \item Continuação da escrita do texto.
+% \item Preparação do relatório final.
+% \end{enumerate}
+
+%\section{Material e métodos}
+
+
+%\section{Forma e análise dos resultados}
+
+\bibliographystyle{plain}
+\bibliography{fairness}
+
+\end{document}
+
+
