@@ -23,39 +23,6 @@ journal = {Mathematics of Operations Research (MOR)},
 doi = {10.1287/moor.10.2.180}
 }
 
-@article{HN1979,
-title = {Easy and hard bottleneck location problems},
-journal = {Discrete Applied Mathematics},
-volume = {1},
-number = {3},
-pages = {209-215},
-year = {1979},
-issn = {0166-218X},
-doi = {https://doi.org/10.1016/0166-218X(79)90044-1},
-url = {https://www.sciencedirect.com/science/article/pii/0166218X79900441},
-author = {Wen-Lian Hsu and George L. Nemhauser},
-abstract = {We consider a bottleneck location problem on a graph and present an efficient (polynomial time) algorithm for solving it. The problem involve the location of K noxious facilities that are to be placed as far as possilbe from the other facilities, and the objective is to maximize the minimum distance from the noxious facilities to the others. We then show that two other bottleneck (min-max) location problems, finding K-centers and absolute K-centers of a graph appear to be very difficult to solve even for reasonably good approximate solutions.}
-}
-
-@article{BPRST2017,
-author = {Byrka, Jaros\l{}aw and Pensyl, Thomas and Rybicki, Bartosz and Srinivasan, Aravind and Trinh, Khoa},
-title = {An Improved Approximation for $k$-Median and Positive Correlation in Budgeted Optimization},
-year = {2017},
-issue_date = {April 2017},
-publisher = {Association for Computing Machinery},
-address = {New York, NY, USA},
-volume = {13},
-number = {2},
-issn = {1549-6325},
-url = {https://doi.org/10.1145/2981561},
-doi = {10.1145/2981561},
-abstract = {Dependent rounding is a useful technique for optimization problems with hard budget constraints. This framework naturally leads to negative correlation properties. However, what if an application naturally calls for dependent rounding on the one hand and desires positive correlation on the other? More generally, we develop algorithms that guarantee the known properties of dependent rounding but also have nearly bestpossible behavior—near-independence, which generalizes positive correlation—on “small” subsets of the variables. The recent breakthrough of Li and Svensson for the classical k-median problem has to handle positive correlation in certain dependent rounding settings, and does so implicitly. We improve upon Li-Svensson’s approximation ratio for k-median from 2.732 + ϵ to 2.675 + ϵ by developing an algorithm that improves upon various aspects of their work. Our dependent rounding approach helps us improve the dependence of the runtime on the parameter ϵ from Li-Svensson’s NO(1/ϵ2) to NO((1/ϵ)log(1/ϵ)).},
-journal = {ACM Trans. Algorithms},
-articleno = {23},
-numpages = {31},
-keywords = {approximation algorithms, k-median, dependent rounding, facility location problems, Combinatorial optimization}
-}
-
 @inproceedings{JMS2002,
 author = {Jain, Kamal and Mahdian, Mohammad and Saberi, Amin},
 title = {A New Greedy Approach for Facility Location Problems},
@@ -71,46 +38,6 @@ pages = {731–740},
 numpages = {10},
 location = {Montreal, Quebec, Canada},
 series = {STOC'02}
-}
-@article{L2013,
-title = {A 1.488 approximation algorithm for the uncapacitated facility location problem},
-journal = {Information and Computation},
-volume = {222},
-pages = {45-58},
-year = {2013},
-note = {38th International Colloquium on Automata, Languages and Programming (ICALP 2011)},
-issn = {0890-5401},
-doi = {https://doi.org/10.1016/j.ic.2012.01.007},
-url = {https://www.sciencedirect.com/science/article/pii/S0890540112001459},
-author = {Shi Li},
-keywords = {Approximation, Facility location problem, Theory},
-abstract = {We present a 1.488-approximation algorithm for the metric uncapacitated facility location (UFL) problem. Previously, the best algorithm was due to Byrka (2007). Byrka proposed an algorithm parametrized by γ and used it with γ≈1.6774. By either running his algorithm or the algorithm proposed by Jain, Mahdian and Saberi (STOCʼ02), Byrka obtained an algorithm that gives expected approximation ratio 1.5. We show that if γ is randomly selected, the approximation ratio can be improved to 1.488. Our algorithm cuts the gap with the 1.463 approximability lower bound by almost 1/3.}
-}
-
-@article{GK1999,
-title = {Greedy Strikes Back: Improved Facility Location Algorithms},
-journal = {Journal of Algorithms},
-volume = {31},
-number = {1},
-pages = {228-248},
-year = {1999},
-issn = {0196-6774},
-doi = {https://doi.org/10.1006/jagm.1998.0993},
-url = {https://www.sciencedirect.com/science/article/pii/S0196677498909932},
-author = {Sudipto Guha and Samir Khuller},
-abstract = {A fundamental facility location problem is to choose the location of facilities, such as industrial plants and warehouses, to minimize the cost of satisfying the demand for some commodity. There are associated costs for locating the facilities, as well as transportation costs for distributing the commodities. We assume that the transportation costs form a metric. This problem is commonly referred to as theuncapacitated facility locationproblem. Application to bank account location and clustering, as well as many related pieces of work, are discussed by Cornuejols, Nemhauser, and Wolsey. Recently, the first constant factor approximation algorithm for this problem was obtained by Shmoys, Tardos, and Aardal. We show that a simple greedy heuristic combined with the algorithm by Shmoys, Tardos, and Aardal, can be used to obtain an approximation guarantee of 2.408. We discuss a few variants of the problem, demonstrating better approximation factors for restricted versions of the problem. We also show that the problem is max SNP-hard. However, the inapproximability constants derived from the max SNP hardness are very close to one. By relating this problem to Set Cover, we prove a lower bound of 1.463 on the best possible approximation ratio, assumingNP∉DTIME[nO(loglogn)].}
-}
-
-
-@article{CKLV2018,
-      title={Fair Clustering Through Fairlets}, 
-      author={Flavio Chierichetti and Ravi Kumar and Silvio Lattanzi and Sergei Vassilvitskii},
-      journal ={Proc. 31st International Conference on Neural Information Processing Systems},
-      year={2018},
-      eprint={1802.05733},
-      archivePrefix={arXiv},
-      primaryClass={cs.LG},
-      url={https://arxiv.org/abs/1802.05733}, 
 }
 
 @inproceedings{FSMSV2015,
@@ -129,59 +56,6 @@ numpages = {10},
 keywords = {machine learning, fairness, disparate impact},
 location = {Sydney, NSW, Australia},
 series = {KDD '15}
-}
-
-@article{WFW2024,
-title = {Approximation algorithms for fair $k$-median problem without fairness violation},
-journal = {Theoretical Computer Science},
-volume = {985},
-pages = {114332},
-year = {2024},
-issn = {0304-3975},
-doi = {https://doi.org/10.1016/j.tcs.2023.114332},
-url = {https://www.sciencedirect.com/science/article/pii/S030439752300645X},
-author = {Di Wu and Qilong Feng and Jianxin Wang},
-keywords = {Clustering, Approximation algorithm, -median},
-abstract = {The fair k-median problem is one of the important clustering problems. The current best approximation ratio is 4.675 for this problem with 1-fairness violation, which was proposed by Bercea et al. [APPROX-RANDOM'2019]. To our best knowledge, there is no available approximation algorithm for this problem without any fairness violation in doubling metrics. In this paper, we consider the fair k-median problem in doubling metrics and general metrics. We provide the first QPTAS for the fair k-median problem based on the hierarchical decomposition and dynamic programming process in doubling metrics. For applying a dynamic programming process to solve this problem, the distances from portals to facilities cannot be directly enumerated since each client may not be assigned to its closest open facility. To overcome the difficulties caused by the fairness constraints, we construct an auxiliary graph and use minimum weighted perfect matching to get the cost between the portals of each block and the ones in its children. In order to satisfy the fairness constraints, we bound the fairness constraints of each open facility in the leaves of the split-tree based on the relation between the subproblem and the subproblems of its children. To obtain the assignment of the given instance and remove the fairness violation, we construct a new b-value min-cost max-flow model based on the set of open facilities. For the fair k-median problem in general metrics, we present a polynomial-time approximation algorithm with ratio O(log⁡k). Our approximation algorithm for the fair k-median problem in doubling metrics is the first result for the corresponding problem without any fairness violation in doubling metrics.}
-}
-
-
-@article{BCFN2019,
-author = {Bera, Suman K. and Chakrabarty, Deeparnab and Flores, Nicolas J. and Negahbani, Maryam},
-title = {Fair algorithms for clustering},
-journal={Proc. of the 33rd International Conference on Neural Information Processing Systems},
-year = {2019},
-publisher = {Curran Associates Inc.},
-address = {Red Hook, NY, USA},
-abstract = {We study the problem of finding low-cost fair clusterings in data where each data point may belong to many protected groups. Our work significantly generalizes the seminal work of Chierichetti et al. (NIPS 2017) as follows.· We allow the user to specify the parameters that define fair representation. More precisely, these parameters define the maximum over- and minimum under-representation of any group in any cluster.· Our clustering algorithm works on any ℓp-norm objective (e.g. k-means, k-median, and k-center). Indeed, our algorithm transforms any vanilla clustering solution into a fair one incurring only a slight loss in quality.· Our algorithm also allows individuals to lie in multiple protected groups. In other words, we do not need the protected groups to partition the data and we can maintain fairness across different groups simultaneously.Our experiments show that on established data sets, our algorithm performs much better in practice than what our theoretical results suggest.},
-booktitle = {Proceedings of the 33rd International Conference on Neural Information Processing Systems},
-articleno = {446},
-numpages = {12}
-}
-
-@article{BGKKRSS2018,
-      title={On the cost of essentially fair clusterings}, 
-      author={Ioana O. Bercea and Martin Groß and Samir Khuller and Aounon Kumar and Clemens Rösner and Daniel R. Schmidt and Melanie Schmidt},
-      year={2019},
-      journal={Proc. 22nd International Conference on Approximation Algorithms for Combinatorial Optimization Problems and 23rd International Conference on Randomization and Computation},
-      eprint={1811.10319},
-      archivePrefix={arXiv},
-      primaryClass={cs.DS},
-      url={https://arxiv.org/abs/1811.10319}, 
-}
-
-
-
-@article{RS2018,
-      title={Privacy preserving clustering with constraints}, 
-      author={Clemens Rösner and Melanie Schmidt},
-      journal={Proc. 45th International Colloquium on Automata, Languages and Programming},
-      pages={96:1-96:14},
-      year={2018},
-      eprint={1802.02497},
-      archivePrefix={arXiv},
-      primaryClass={cs.CC},
-      url={https://arxiv.org/abs/1802.02497}, 
 }
 
 @article{JSS2020,
@@ -203,7 +77,6 @@ numpages = {12}
    author={Cohen-Addad, Vincent and Grandoni, Fabrizio and Lee, Euiwoong and Schwiegelshohn, Chris and Svensson, Ola},
    year={2025}
    }
-
 
 @article{LS2012,
 author = {Li, Shi and Svensson, Ola},
@@ -254,4 +127,86 @@ eprint = {
   timestamp = {2013-01-10T11:39:33.000+0100},
   title = {The Design of Approximation Algorithms.},
   year = 2011
+}
+
+@incollection {BIPV2019,
+    AUTHOR = {Bandyapadhyay, Sayan and Inamdar, Tanmay and Pai, Shreyas and
+              Varadarajan, Kasturi},
+     TITLE = {A constant approximation for colorful {$k$}-center},
+ BOOKTITLE = {27th {A}nnual {E}uropean {S}ymposium on {A}lgorithms},
+    SERIES = {LIPIcs. Leibniz Int. Proc. Inform.},
+    VOLUME = {144},
+     PAGES = {Art. No. 12, 14},
+ PUBLISHER = {Schloss Dagstuhl. Leibniz-Zent. Inform., Wadern},
+      YEAR = {2019},
+      ISBN = {978-3-95977-124-5},
+   MRCLASS = {68U05 (68W25)},
+  MRNUMBER = {4007851},
+}
+
+@article {CGK2020,
+    AUTHOR = {Chakrabarty, Deeparnab and Goyal, Prachi and Krishnaswamy,
+              Ravishankar},
+     TITLE = {The non-uniform {$k$}-center problem},
+   JOURNAL = {ACM Trans. Algorithms},
+  FJOURNAL = {ACM Transactions on Algorithms},
+    VOLUME = {16},
+      YEAR = {2020},
+    NUMBER = {4},
+     PAGES = {Art. 46, 19},
+      ISSN = {1549-6325,1549-6333},
+   MRCLASS = {68W25},
+  MRNUMBER = {4159067},
+       DOI = {10.1145/3392720},
+       URL = {https://doi.org/10.1145/3392720},
+}
+
+@inproceedings {KLS2018,
+    AUTHOR = {Krishnaswamy, Ravishankar and Li, Shi and Sandeep, Sai},
+     TITLE = {Constant approximation for {$k$}-median and {$k$}-means with
+              outliers via iterative rounding},
+ BOOKTITLE = {S{TOC}'18---{P}roceedings of the 50th {A}nnual {ACM} {SIGACT}
+              {S}ymposium on {T}heory of {C}omputing},
+     PAGES = {646--659},
+ PUBLISHER = {ACM, New York},
+      YEAR = {2018},
+      ISBN = {978-1-4503-5559-9},
+   MRCLASS = {68W25},
+  MRNUMBER = {3826283},
+       DOI = {10.1145/3188745.3188882},
+       URL = {https://doi.org/10.1145/3188745.3188882},
+}
+
+@incollection {CHXXZ2024,
+    AUTHOR = {Chen, Xianrun and Han, Lu and Xu, Dachuan and Xu, Yicheng and
+              Zhang, Yong},
+     TITLE = {{$k$}-median/means with outliers revisited: a simple fpt
+              approximation},
+ BOOKTITLE = {Computing and combinatorics. {P}art {II}},
+    SERIES = {Lecture Notes in Comput. Sci.},
+    VOLUME = {14423},
+     PAGES = {295--302},
+ PUBLISHER = {Springer, Cham},
+      YEAR = {[2024] \copyright 2024},
+      ISBN = {978-3-031-49192-4; 978-3-031-49193-1},
+   MRCLASS = {68W25 (68Q27)},
+  MRNUMBER = {4697257},
+       DOI = {10.1007/978-3-031-49193-1\_22},
+       URL = {https://doi.org/10.1007/978-3-031-49193-1_22},
+}
+
+@incollection {GMZ2021,
+    AUTHOR = {Gupta, Anupam and Moseley, Benjamin and Zhou, Rudy},
+     TITLE = {Structural iterative rounding for generalized {$k$}-median
+              problems},
+ BOOKTITLE = {48th {I}nternational {C}olloquium on {A}utomata, {L}anguages,
+              and {P}rogramming},
+    SERIES = {LIPIcs. Leibniz Int. Proc. Inform.},
+    VOLUME = {198},
+     PAGES = {Art. No. 77, 18},
+ PUBLISHER = {Schloss Dagstuhl. Leibniz-Zent. Inform., Wadern},
+      YEAR = {2021},
+      ISBN = {978-3-95977-195-5},
+   MRCLASS = {68W25},
+  MRNUMBER = {4288907},
 }
