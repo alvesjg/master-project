@@ -50,7 +50,7 @@ Given a point set $D$ (whose elements are called clients), a set of possible loc
 The goal in the $k$-center problem is to minimize the maximum distance between any client and its closest facility in $S$, while, in the $k$-median problem, the goal is to minimize the sum of the distances between each client and its closest facility in $S$.
 In the $k$-center problem, it is traditional to assume that $F=D$, while the general case (where $F$ and~$D$ can be distinct) is the \emph{$k$-supplier problem}.
 
-The requirement of providing service to all clients is some times unrealistic, as it might increase the cost sustancially, compared to a solution that addresses well most of the clients. 
+The requirement of providing service to all clients is some times unrealistic, as it might increase the cost substancially, compared to a solution that addresses well most of the clients. 
 So, one of the well-studied and widely applied variants of these problems is the version where we do not require all clients to be served; in other words, \emph{outliers} are allowed. 
 In these variants, known as the \emph{robust $k$-center} and \emph{robust $k$-median} problems~\cite{CharikarKMN2001}, the input is the same as in the standard version, with the addition of an integer $t$ representing the minimum number of clients that must be served. 
 The goal is to output a set $S \subseteq F$ of cardinality at most $k$ and a set $C \subseteq D$ of covered clients with cardinality at least $t$ that minimize the same objective as in the standard versions, but restricted to the set~$C$.  The elements in $D \setminus C$ are the so called outliers.  A significant issue that may arise is that certain groups might be entirely classified as outliers, leading to undesirable solutions.
@@ -119,7 +119,7 @@ This semester, the candidate is enrolled in the following courses:
 \end{itemize}
 This will further complement his background in algorithms and combinatorial optimization, key areas for the development of the present project.  Also, in March ?? to ??, the candidate will take part on the School..., in Rio de Janeiro.}
 
-\newpage
+% \newpage
 
 \section{Objectives}
 
@@ -127,29 +127,36 @@ This will further complement his background in algorithms and combinatorial opti
 %These techniques encompass several advanced topics in combinatorial optimization, including various LP rounding approaches. 
 
 The goal of this project is to study, from the perspective of approximation algorithms, variants of two of 
-the most important clustering problem in combinatorial optimization that incorporate fairness constraints.
-A major goal is to work towards designing the first approximation algorithm for the colorful $k$-median. 
+the most important clustering problems in combinatorial optimization, incorporating fairness constraints.
+One of the objectives is to further strengthen the background of the candidate in the area of approximation algorithms
+and to consolidate his knowlegment on clustering, preparing him to be able to produce new results in these areas.  
+For this, he must learn how to approach an open problem by trying to use techniques that were successful in solving 
+similar problems, many times in a creative way, that involves tackling the problem from different perspectives.  
+This process might lead also to the development of new techniques, and eventually to new results. 
+Concretely, a major goal is to work towards designing the first approximation algorithm for the colorful $k$-median. 
 With this in mind, the candidate will study the existing literature on the colorful $k$-center and on the robust $k$-median, 
-investigating the possibility to design an approximation algorithm for the colorful $k$-median problem using 
-techniques that were successful in these other related problems.  
+investigating the possibility to design an approximation algorithm for the colorful $k$-median based 
+on the techniques applied in these related problems.
+
 Given the challenges inherent in developing and analyzing effective approximation algorithms for hard problems, 
 it is essential for the candidate to gain exposure to methods that foster deep understanding of the problems addressed.
-Consequently, considering the background of the candidate, we believe this project is well suited for his Master's dissertation
+Considering the background of the candidate, we believe this project is well suited for his Master's dissertation
 even if no new results are achieved. 
 In the dissertation required by the Master's Program, the candidate will present both the studied results and any new findings.
-Moreover, the project will offer immense value by equipping the candidate with profound knowledge of approximation algorithms 
+The project aims at equipping the candidate with profound knowledge of approximation algorithms 
 and clustering problems with fairness concerns, preparing him for future academic endeavors, including his planned pursuit of a PhD degree.
 
 \section{Work plan and project schedule}
 
-The master's program in which the candidate is enrolled requires 48 credits from courses, which correspond to six regular courses. 
-In the current semester, the candidate is taking three courses: Advanced Data Structures, Semidefinite Programming and Its Applications, and Topics in Analysis of Algorithm. 
-In parallel with these courses, the candidate is studying the paper ``\emph{Fair Colorful $k$-Center}''~\cite{JSS2020}. 
+The Master's Program in which the candidate is enrolled requires 48 credits from courses, which correspond to six regular courses. 
+In the current semester, as already mentioned, the candidate is taking three courses: Advanced Data Structures, Semidefinite Programming and Its Applications, and Topics in Analysis of Algorithm. 
+
+In parallel with these courses, the candidate is studying the paper ``\emph{Fair Colorful $k$-Center}''~\cite{JSS2020} (JSS2020). 
 Initially, this paper focuses on the two-color case of the colorful $k$-center. 
 Then it extends the results to any constant number of colors. 
 The authors use two linear programs to show that there exists a ``pseudo-solution'' of cost at most twice that of an optimal solution. 
 A \emph{pseudo-solution} is a choice of at most $k + \ell$ facilities to be open, where $\ell$ is a constant. In their scheme, the constant $\ell$ depends only on the number $c$ of colors, and $\ell = 1$ in the case of two colors.
-Their strategy proceeds by choosing, in a greedy way, $\ell$ of the $k+\ell$ open facilities to be closed, deciding what clients to attend so that to fulfill the color requirements and degrading the approximation ratio from 2 to at most 3.
+Their strategy proceeds by choosing, in a greedy way, $\ell$ of the $k+\ell$ open facilities to be closed, reviewing what clients to attend so that to keep fulfilling the color requirements and, in the process, degrading the approximation ratio from 2 to at most 3.
 The material in this paper will be described in details in the candidate dissertation, so in the next months the candidate will already start writing about these results.
 % By closing one of the open facilities in this pseudo-solution using a greedy approach, they can guarantee that one of the colors meets the minimum number of clients covered, although this does not satisfy the requirement for the other color. 
 % They then design a method to smartly close a facility and reassign clients to the remaining clusters, ensuring that the requirements for both colors are met. 
@@ -158,41 +165,61 @@ The material in this paper will be described in details in the candidate dissert
 In March, the candidate will also participate in the second \emph{Brazilian School of Combinatorics}, held at IMPA in Rio de Janeiro. 
 The event will feature eleven plenary talks, two mini-courses, and daily poster presentations. 
 The candidate also intend to start studying the paper ``\emph{Constant Approximation for $k$-Median and $k$-Means with Outliers
-via Iterative Rounding}''~\cite{KLS2018} (KLS2018).
+via Iterative Rounding}''~\cite{KLS2018} (KLS2018). Our main idea to obtain an algorithm for the colorful $k$-median is to try to adapt the strategy presented in this paper.  Both this and the JSS2020 papers use some common strategies, so the study of both of these papers seems essencial.  Besides, they present a solid and general framework to be used in clustering problems that is an asset for anyone that wishes to work with this line of problems. 
 
 In the second semester, the candidate will take the three remaining required courses.
-He intend to enroll courses on Integer Programming, Computational Complexity and Software Engineering. 
-He will also finish studying the paper KLS2018 and write a chapter about it.
-Simultaneously, he will start preparing the project for a Research Internship Abroad (RIA). 
-There are some researchers abroad (e.g., in the USA and Switzerland) who works intensively on these problems and their variants, and we could contact them to verify the possibility of the candidate making a scientific visit.
+He intends to enroll in courses on Integer Programming, Computational Complexity and Software Engineering. 
+He will also finish studying the paper KLS2018 and write the part of his dissertation about it.
+Simultaneously, he will prepare for the qualification exam required by the Master's Program, 
+and will also start preparing the project for a Research Internship Abroad (RIA). 
+There are some researchers abroad (e.g., in the USA and Switzerland) who work intensively on clustering problems, 
+and we intend to contact some of them to verify the possibility of the candidate making a scientific visit to 
+their research group.
 
-In the third semester, the candidate will prepare for the qualification exam required by the project. 
-During this exam, the candidate must present a dissertation proposal to a judging committee composed of the advisor, who will serve as the president, and two additional members proposed by her.
-At the same time, the candidate and the advisor will investigate the design of an approximation algorithm for the colorful $k$-median problem using the techniques learned from the two previously studied papers.
+In the first months of 2026, in the begining of third semester, the candidate will undertake the qualification exam. 
+During this exam, the candidate must present a dissertation proposal to a judging committee composed of his advisor, 
+who will serve as the president, and two additional members of the scientific community that work in related areas.
+At the same time, the candidate and the advisor will further investigate the design of an approximation algorithm 
+for the colorful $k$-median problem using the techniques learned from the two previously studied papers, 
+and from others that turn out to seem relevant to the goals of the project.  For instance, it was announced 
+very recently a $(2 + \eps)$-approximation for the classic $k$-median~\cite{CGLS2025} (CGLSS2025). 
+This is a breakthrough, but the paper is not yet available. As soon as it is available, 
+we should look at it, as it certainly will bring interesting new ideas useful for $k$-median variants.
+Possibly we might decide on including material from this paper in the dissertation.
 
 In the fourth semester, the candidate intends to participate in the RIA program.
-He will also write papers if any new results are achieved and complete the dissertation.
+He will also write papers if any new results are achieved, and he will follow with his studies and complete his dissertation.
 
-Furthermore, the candidate must also participate in scientific events in the field, whether national or international, whenever possible. He should also attend and deliver seminars in the research group for Theory of Computation, Optimization, and Combinatorics at the Department of Computer Science, which currently includes 14 professors, 2 postdoctoral researchers, 8 doctoral students, and 7 master's students.
+Furthermore, the candidate must also participate in scientific events in the field, whether national or international, 
+whenever possible. He should also attend and deliver seminars in the research group for Theory of Computation, 
+Optimization, and Combinatorics at the Department of Computer Science, which currently includes 14 professors, 
+2 postdoctoral researchers, 8 doctoral students, and 7 master's students.
 
-The schedule expected for the four semester is:
+The schedule of the main activities planned for the four semester is:
 
-\begin{table}[ht]
-\centering
+\begin{center}
+{\footnotesize
 \begin{tabular}{|l|c|c|c|c|}
 \hline
 \textbf{Activity} & \textbf{1st Sem} & \textbf{2nd Sem} & \textbf{3rd Sem} & \textbf{4th Sem} \\
 \hline
-Take courses                  & \(\surd\) & \(\surd\) &        &        \\
+Take courses                   & \(\surd\) & \(\surd\) &           &           \\
 Participate in weekly seminars & \(\surd\) & \(\surd\) & \(\surd\) & \(\surd\) \\
-Read papers           & \(\surd\) & \(\surd\) & \(\surd\) &   \(\surd\)     \\
-Qualification exam            &          &          & \(\surd\) &        \\
-Dissertation writing          &   \(\surd\)       &    \(\surd\)      & \(\surd\) & \(\surd\) \\
-Dissertation defense          &          &          &          & \(\surd\) \\
+Study the material in JSS2020  & \(\surd\) &           &           &           \\
+Write about JSS2020            & \(\surd\) & \(\surd\) &           &           \\
+Study the material in KLS2018  & \(\surd\) & \(\surd\) &           &           \\
+Write about KLS2018            &           & \(\surd\) & \(\surd\) &           \\
+Read CGLSS2025 and other related papers &  & \(\surd\) & \(\surd\) & \(\surd\) \\
+Qualification exam            &            &           & \(\surd\) &           \\
+Dissertation writing          & \(\surd\)  & \(\surd\) & \(\surd\) & \(\surd\) \\
+Dissertation defense          &            &           &           & \(\surd\) \\
 \hline
 \end{tabular}
-\caption{Proposed Schedule of Activities}
-\end{table}
+}
+\end{center}
+% \caption{Proposed Schedule of Activities}
+% \end{table}
+
 
 \section{Methods and materials}
 The materials used will be the papers mentioned above and, possibly, other important papers that can deepen the candidate's understanding of the problems studied.
@@ -207,7 +234,8 @@ The candidate’s active interaction with the supervisor, including writing stud
 By following this methodology, the project enables the exploration of advanced topics and the achievement of the project’s goals.
 
 \section{Format and analysis of the results}
-The candidate’s performance will be evaluated primarily through his performance in the courses he takes. In addition, his participation in the group's seminars will also be assessed. 
+
+The candidate's performance will be evaluated primarily through his performance in the courses he takes. In addition, his participation in the group's seminars will also be assessed. 
 Every topic studied will be written up in a text that will serve as a model for the dissertation, and this will also serve as an evaluation of the candidate's progress. 
 If original and relevant results are obtained, they will be submitted to conferences in the field and to specialized journals. 
 Since this is a master’s program, we do not consider this a requirement, but it may occur naturally. 
@@ -228,7 +256,6 @@ We believe it is important for the candidate to obtain a solid education that wi
 % \end{enumerate}
 
 %\section{Material e métodos}
-
 
 %\section{Forma e análise dos resultados}
 
